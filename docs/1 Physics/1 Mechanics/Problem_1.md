@@ -160,5 +160,44 @@ plt.show()
 
 ![alt text](image.png)
 
+# Projectile Range vs. Angle
+
+## Description
+The graph illustrates the relationship between the launch angle (\(^\circ\)) and the projectile range (m) for different initial velocities (\( v_0 \)). The three curves represent:
+
+**Blue Curve:**  
+$ v_0 = 10 $ m/s  
+
+**Orange Curve:**  
+$ v_0 = 20 $ m/s  
+
+**Green Curve:**  
+$ v_0 = 30 $ m/s  
+
+
+### Observations:
+- The range increases with angle up to **45°**, after which it decreases symmetrically.  
+- Higher initial velocity results in a greater range.  
+- The maximum range occurs at **45°** for all velocities.  
+
+## Key Equation:
+The projectile range  R  (ignoring air resistance) is given by:
+
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g}
+$$
+
+where:
+- R = range
+- v = velocity   
+- g = 9.81 m/s² is the acceleration due to gravity.
+
+
+
+## Limitations:
+1. **No Air Resistance Considered** – The graph assumes ideal projectile motion in a vacuum.  
+2. **No Wind Effects** – External forces like wind resistance are ignored.  
+3. **No Spin or Magnus Effect** – Rotational forces affecting range are not considered.  
+4. **Constant Acceleration Due to Gravity** – Assumes a uniform gravitational field (\( g = 9.81 \) m/s²).  
 
 
