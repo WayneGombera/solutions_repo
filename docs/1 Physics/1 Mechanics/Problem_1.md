@@ -51,7 +51,7 @@ The trajectory of a projectile depends on two initial conditions: the initial ve
 - Varying $v_0$ changes **speed and range**.
 - Varying $\theta$ affects **trajectory shape**, with the optimal angle for maximum range being $45^\circ$.
 
-By adjusting $v_0$ and $\theta$, we can control the projectile's motion, optimizing for **distance, height, or speed** depending on the scenario.
+By adjusting $v_0$ and $\theta$, we  can control the projectile's motion, optimizing for **distance, height, or speed** depending on the scenario.
 
 ### Practical applications
   - It is important in sports such as basketball , discus and javelin to optimize angles for maximum range
