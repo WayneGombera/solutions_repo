@@ -60,14 +60,12 @@ By adjusting $v_0$ and $\theta$, we can control the projectile's motion, optimiz
 # Calculating Projectile Range at Different Angles
 
 ## **Range Formula**
-$$
-\begin{aligned}
+$$\begin{aligned}
 R &= \text{range (meters)} \\
 v_0 &= \text{initial velocity (m/s)} \\
 \theta &= \text{launch angle (degrees)} \\
 g &= 9.81 \text{ m/s}^2 \text{ (acceleration due to gravity)}
-\end{aligned}
-$$
+\end{aligned}$$
 ---
 
 ## **Example 1**  
