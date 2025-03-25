@@ -163,20 +163,20 @@ plt.show()
 # Projectile Range vs. Angle
 
 ## Description
-The graph illustrates the relationship between the launch angle (\(^\circ\)) and the projectile range (m) for different initial velocities (\( v_0 \)). The three curves represent:
+The graph illustrates the relationship between the launch angle and the projectile range (m) for different initial velocities. The three curves represent:
 
 **Blue Curve:**  
-$ v_0 = 10 $ m/s  
+$ v_0 $= 10  m/s  
 
 **Orange Curve:**  
-$ v_0 = 20 $ m/s  
+$ v_0 $= 20  m/s  
 
 **Green Curve:**  
-$ v_0 = 30 $ m/s  
+$ v_0 $ = 30 m/s  
 
 
 ### Observations:
-- The range increases with angle up to **45°**, after which it decreases symmetrically.  
+- The range increasess with angle up to **45°**, after which it decreases symmetrically.  
 - Higher initial velocity results in a greater range.  
 - The maximum range occurs at **45°** for all velocities.  
 
