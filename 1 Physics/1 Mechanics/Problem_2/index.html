@@ -172,10 +172,11 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<h1 id="problem-forced-damped-pendulum-simulation">Problem: Forced Damped Pendulum Simulation</h1>
-<h2 id="1-introduction">1. Introduction</h2>
-<h3 id="purpose-of-the-study">Purpose of the Study</h3>
-<p>In this report, we will study the motion of a forced damped pendulum. The goal is to develop a clear mathematical model describing how different factors—such as damping, external forcing, and initial conditions—affect the pendulum's behavior, including resonance, quasiperiodicity, and chaotic motion. </p>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The forced damped pendulum is an ideal system to study how damping, restoring forces, and external periodic forces interact. This system exhibits a rich variety of behaviors such as resonance, chaos, and periodic motion. These phenomena have widespread applications in fields like energy harvesting, mechanical structures under stress, and oscillating systems. By analyzing how external forces and damping affect the motion, we can gain insights into real-world systems like suspension bridges and oscillating circuits.</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="differential-equation-for-forced-damped-pendulum">Differential Equation for Forced Damped Pendulum</h3>
 <p>The motion of a forced damped pendulum is described by the following differential equation:</p>
 <div class="arithmatex">\[
 \frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = F_0 \cos(\omega t)
@@ -198,53 +199,6 @@
 - A particular solution for the external driving force.</p>
 <p>The general solution combines both, with resonance occurring when <span class="arithmatex">\( \omega \approx \omega_0 \)</span>, where <span class="arithmatex">\( \omega_0 = \sqrt{\frac{g}{L}} \)</span>.</p>
 <h3 id="resonance-conditions-and-energy-implications">Resonance Conditions and Energy Implications</h3>
-<p>At resonance (<span class="arithmatex">\( \omega = \omega_0 \)</span>), the system absorbs energy efficiently from the external force, leading to large oscillations. Damping reduces the amplitude of oscillations at resonance, preventing them from growing indefinitely.</p>
-<h2 id="2-theoretical-foundation">2. Theoretical Foundation</h2>
-<h3 id="21-governing-equations-of-motion">2.1 Governing Equations of Motion</h3>
-<p>The forced damped pendulum follows a nonlinear second-order differential equation:</p>
-<div class="arithmatex">\[
-\ddot{\theta} + \gamma \dot{\theta} + \omega_0^2 \sin\theta = A \cos(\omega t)
-\]</div>
-<p>where:
-- <span class="arithmatex">\(\theta\)</span> is the angular displacement,
-- <span class="arithmatex">\( \gamma \)</span> is the damping coefficient,
-- <span class="arithmatex">\( \omega_0 \)</span> is the natural frequency,
-- <span class="arithmatex">\( A \)</span> is the amplitude of the external force,
-- <span class="arithmatex">\( \omega \)</span> is the driving frequency.</p>
-<p>For small angles (<span class="arithmatex">\( \theta \approx \sin\theta \)</span>), the equation simplifies to:</p>
-<div class="arithmatex">\[
-\ddot{\theta} + \gamma \dot{\theta} + \omega_0^2 \theta = A \cos(\omega t)
-\]</div>
-<p>which allows for analytical solutions to explore resonance conditions and energy behavior.</p>
-<h2 id="3-numerical-simulation">3. Numerical Simulation</h2>
-<h2 id="4-analysis-of-dynamics">4. Analysis of Dynamics</h2>
-<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
-<h2 id="motivation">Motivation</h2>
-<p>The forced damped pendulum is an ideal system to study how damping, restoring forces, and external periodic forces interact. This system exhibits a rich variety of behaviors such as resonance, chaos, and periodic motion. These phenomena have widespread applications in fields like energy harvesting, mechanical structures under stress, and oscillating systems. By analyzing how external forces and damping affect the motion, we can gain insights into real-world systems like suspension bridges and oscillating circuits.</p>
-<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
-<h3 id="differential-equation-for-forced-damped-pendulum">Differential Equation for Forced Damped Pendulum</h3>
-<p>The motion of a forced damped pendulum is described by the following differential equation:</p>
-<div class="arithmatex">\[
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = F_0 \cos(\omega t)
-\]</div>
-<p>Where:
-- <span class="arithmatex">\( \theta \)</span> is the angular displacement,
-- <span class="arithmatex">\( \gamma \)</span> is the damping coefficient,
-- <span class="arithmatex">\( g \)</span> is the gravitational acceleration,
-- <span class="arithmatex">\( L \)</span> is the length of the pendulum,
-- <span class="arithmatex">\( F_0 \)</span> is the amplitude of the external driving force,
-- <span class="arithmatex">\( \omega \)</span> is the frequency of the external force.</p>
-<p>For small-angle approximations (<span class="arithmatex">\( \theta \)</span> small), we can simplify <span class="arithmatex">\( \sin \theta \approx \theta \)</span>, yielding:</p>
-<div class="arithmatex">\[
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \theta = F_0 \cos(\omega t)
-\]</div>
-<p>This is a second-order linear non-homogeneous ODE.</p>
-<h3 id="solution-for-small-angle-oscillations_1">Solution for Small-Angle Oscillations</h3>
-<p>For small oscillations, the solution to this equation involves:
-- The homogeneous solution for damping and natural frequency, and
-- A particular solution for the external driving force.</p>
-<p>The general solution combines both, with resonance occurring when <span class="arithmatex">\( \omega \approx \omega_0 \)</span>, where <span class="arithmatex">\( \omega_0 = \sqrt{\frac{g}{L}} \)</span>.</p>
-<h3 id="resonance-conditions-and-energy-implications_1">Resonance Conditions and Energy Implications</h3>
 <p>At resonance (<span class="arithmatex">\( \omega = \omega_0 \)</span>), the system absorbs energy efficiently from the external force, leading to large oscillations. Damping reduces the amplitude of oscillations at resonance, preventing them from growing indefinitely.</p>
 <h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
 <h3 id="influence-of-damping-driving-amplitude-and-frequency">Influence of Damping, Driving Amplitude, and Frequency</h3>
@@ -293,6 +247,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 </code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
 <h3 id="41-effect-of-parameters">4.1 Effect of Parameters</h3>
 <ul>
 <li><strong>Damping (<span class="arithmatex">\( \gamma \)</span>)</strong>: Higher damping suppresses oscillations.</li>
