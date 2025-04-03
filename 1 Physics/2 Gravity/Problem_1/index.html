@@ -261,6 +261,44 @@ plt.legend()
 plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image-1.png"/></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
+M_sun = 1.989e30  # Mass of the Sun (kg)
+
+# Orbital radii of planets in AU
+planet_names = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+radii_au = np.array([0.387, 0.723, 1.000, 1.524, 5.203, 9.537, 19.191, 30.070])  # in AU
+
+# Convert AU to meters
+radii_m = radii_au * 1.496e11  # Convert AU to meters
+
+# Calculate the orbital periods using Kepler's Third Law
+periods_seconds = 2 * np.pi * np.sqrt(radii_m**3 / (G * M_sun))
+
+# Convert period from seconds to Earth years
+periods_years = periods_seconds / (60 * 60 * 24 * 365.25)
+
+# Plot the graph: Orbital Period vs Orbital Radius
+plt.figure(figsize=(10, 6))
+plt.plot(radii_au, periods_years, marker='o', linestyle='-', color='b', label='Orbital Period')
+
+# Add labels to each point
+for i, planet in enumerate(planet_names):
+    plt.text(radii_au[i], periods_years[i], planet, fontsize=9, ha='right', va='bottom')
+
+# Labeling and displaying the plot
+plt.xlabel('Orbital Radius (AU)', fontsize=12)
+plt.ylabel('Orbital Period (Years)', fontsize=12)
+plt.title('Orbital Period vs Orbital Radius for Planets in the Solar System', fontsize=14)
+plt.grid(True)
+plt.xticks(np.arange(0, 35, 5))
+plt.legend()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
