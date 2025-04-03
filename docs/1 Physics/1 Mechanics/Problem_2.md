@@ -4,7 +4,7 @@
 ## 1. Introduction
 
 ### Purpose of the Study
-In this report, we will study the motion of a forced damped pendulum. The goal is to develop a clear mathematical model describing how different factors—such as damping, external forcing, and initial conditions—affect the pendulum's behavior, including resonance, quasiperiodicity, and chaotic motion.
+In this report, we will study the motion of a forced damped pendulum. The goal is to develop a clear mathematical model describing how different factors—such as damping, external forcing, and initial conditions—affect the pendulum's behavior, including resonance, quasiperiodicity, and chaotic motion. 
 
 ## 2. Theoretical Foundation
 
