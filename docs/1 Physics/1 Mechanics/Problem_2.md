@@ -1,78 +1,4 @@
 # Problem 2
-# Problem: Forced Damped Pendulum Simulation
-
-## 1. Introduction
-
-### Purpose of the Study
-In this report, we will study the motion of a forced damped pendulum. The goal is to develop a clear mathematical model describing how different factors—such as damping, external forcing, and initial conditions—affect the pendulum's behavior, including resonance, quasiperiodicity, and chaotic motion. 
-
-The motion of a forced damped pendulum is described by the following differential equation:
-
-$$
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = F_0 \cos(\omega t)
-$$
-
-Where:
-- \( \theta \) is the angular displacement,
-- \( \gamma \) is the damping coefficient,
-- \( g \) is the gravitational acceleration,
-- \( L \) is the length of the pendulum,
-- \( F_0 \) is the amplitude of the external driving force,
-- \( \omega \) is the frequency of the external force.
-
-For small-angle approximations (\( \theta \) small), we can simplify \( \sin \theta \approx \theta \), yielding:
-
-$$
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \theta = F_0 \cos(\omega t)
-$$
-
-This is a second-order linear non-homogeneous ODE.
-
-### Solution for Small-Angle Oscillations
-
-For small oscillations, the solution to this equation involves:
-- The homogeneous solution for damping and natural frequency, and
-- A particular solution for the external driving force.
-
-The general solution combines both, with resonance occurring when \( \omega \approx \omega_0 \), where \( \omega_0 = \sqrt{\frac{g}{L}} \).
-
-### Resonance Conditions and Energy Implications
-
-At resonance (\( \omega = \omega_0 \)), the system absorbs energy efficiently from the external force, leading to large oscillations. Damping reduces the amplitude of oscillations at resonance, preventing them from growing indefinitely.
-
-
-
-## 2. Theoretical Foundation
-
-### 2.1 Governing Equations of Motion
-The forced damped pendulum follows a nonlinear second-order differential equation:
-
-$$
-\ddot{\theta} + \gamma \dot{\theta} + \omega_0^2 \sin\theta = A \cos(\omega t)
-$$
-
-where:
-- \(\theta\) is the angular displacement,
-- \( \gamma \) is the damping coefficient,
-- \( \omega_0 \) is the natural frequency,
-- \( A \) is the amplitude of the external force,
-- \( \omega \) is the driving frequency.
-
-For small angles (\( \theta \approx \sin\theta \)), the equation simplifies to:
-
-$$
-\ddot{\theta} + \gamma \dot{\theta} + \omega_0^2 \theta = A \cos(\omega t)
-$$
-
-which allows for analytical solutions to explore resonance conditions and energy behavior.
-
-## 3. Numerical Simulation
-
-
-
-
-## 4. Analysis of Dynamics
-
 # Investigating the Dynamics of a Forced Damped Pendulum
 
 ## Motivation
@@ -170,7 +96,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
-
+![alt text](image-4.png)
 
 ### 4.1 Effect of Parameters
 - **Damping (\( \gamma \))**: Higher damping suppresses oscillations.
