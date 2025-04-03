@@ -86,7 +86,7 @@ plt.show()
 - **Driving Frequency (\( \omega \))**: When \( \omega \approx \omega_0 \), resonance occurs, leading to large oscillations.
 
 ### 4.2 Transition to Chaos
-By varying \( A \) and \( \omega \), the pendulum can exhibit periodic, quasiperiodic, or chaotic motion. Phase space plots and Poincaré sections illustrate these behaviors.
+By varying \( A \) and \( \omega \), the pendulum can exhibit periodic, quasiperiodic, or chaotic motion.Phase space plots and Poincaré sections illustrate these behaviors.
 
 ## 5. Practical Applications
 - **Energy Harvesting**: Utilizing resonance for efficient energy transfer.
