@@ -94,29 +94,35 @@ In the Solar System, planets follow nearly circular orbits around the Sun. By me
 ## 4. Computational Model
 
 ### Simulating Circular Orbits
-
-Below is a Python script that simulates the motion of a planet in a circular orbit, visualizing the relationship between the orbital period and radius.
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
 G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M = 1.989e30  # Mass of the Sun (kg)
-r_values = np.linspace(1e11, 1e13, 100)  # Range of orbital radii (in meters)
+M_earth = 5.972e24  # Mass of Earth (kg)
 
-# Calculate orbital period using Kepler's Third Law
-T_values = 2 * np.pi * np.sqrt(r_values**3 / (G * M))
+# Orbital radius and period of the Moon
+r_moon = 3.844e8  # Orbital radius of the Moon (meters)
+T_moon = 27.3 * 24 * 3600  # Orbital period of the Moon (seconds)
 
-# Plot the relationship between orbital period and orbital radius
+# Range of orbital radii for calculation (from 1,000 km to 1,000,000 km)
+radii = np.linspace(1e6, 1e9, 500)  # in meters
+
+# Calculate orbital periods using Kepler's Third Law: T^2 = (4 * pi^2 * r^3) / (G * M)
+periods = 2 * np.pi * np.sqrt(radii**3 / (G * M_earth))
+
+# Convert period from seconds to days
+periods_days = periods / (60 * 60 * 24)
+
+# Plot Orbital Period vs Orbital Radius for the Earth-Moon system
 plt.figure(figsize=(8, 6))
-plt.plot(r_values, T_values, label="T^2 = (4π^2r^3) / (GM)")
-plt.xlabel('Orbital Radius (m)')
-plt.ylabel('Orbital Period (s)')
-plt.title('Kepler\'s Third Law: Orbital Period vs Orbital Radius')
+plt.plot(radii / 1e6, periods_days, label='Orbital Period', color='b')
+plt.xlabel('Orbital Radius (million meters)')
+plt.ylabel('Orbital Period (days)')
+plt.title('Orbital Period vs Orbital Radius (Earth-Moon System)')
 plt.grid(True)
 plt.legend()
 plt.show()
 ```
-![alt text](image.png)
+![alt text](image-1.png)
