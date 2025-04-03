@@ -77,6 +77,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
+![alt text](image-1.png)
 
 ## 4. Analysis of Dynamics
 
@@ -87,6 +88,10 @@ plt.show()
 
 ### 4.2 Transition to Chaos
 By varying \( A \) and \( \omega \), the pendulum can exhibit periodic, quasiperiodic, or chaotic motion.Phase space plots and Poincaré sections illustrate these behaviors.
+
+```python
+
+![alt text](image-2.png)
 
 ## 5. Practical Applications
 - **Energy Harvesting**: Utilizing resonance for efficient energy transfer.
