@@ -90,6 +90,39 @@ plt.show()
 By varying \( A \) and \( \omega \), the pendulum can exhibit periodic, quasiperiodic, or chaotic motion.Phase space plots and Poincaré sections illustrate these behaviors.
 
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+def pendulum_equations(y, t, gamma, omega0, A, omega):
+    theta, v = y
+    dydt = [v, -gamma * v - omega0**2 * np.sin(theta) + A * np.cos(omega * t)]
+    return dydt
+
+# Parameters
+gamma = 0.5  # Damping coefficient
+omega0 = 1.5  # Natural frequency
+A = 1.2       # Driving force amplitude
+omega = 2.0   # Driving frequency
+
+# Initial conditions
+y0 = [0.1, 0]  # Initial angle and velocity
+
+t = np.linspace(0, 50, 1000)  # Time array
+
+# Solve ODE
+y = odeint(pendulum_equations, y0, t, args=(gamma, omega0, A, omega))
+
+# Plot results
+plt.figure(figsize=(10, 5))
+plt.plot(y[:, 0], y[:, 1], label='Phase Space')
+plt.xlabel('Theta (angle)')
+plt.ylabel('Angular velocity')
+plt.title('Phase Portrait of Forced Damped Pendulum')
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 ![alt text](image-2.png)
 
