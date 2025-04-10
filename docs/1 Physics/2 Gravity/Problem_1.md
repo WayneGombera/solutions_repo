@@ -94,82 +94,54 @@ In the Solar System, planets follow nearly circular orbits around the Sun. By me
 ## 4. Computational Model
 
 ### Simulating Circular Orbits
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_earth = 5.972e24  # Mass of Earth (kg)
+# Data for planets (T in Earth years, R in AU)
+planets = {
+    'Mercury': (0.24, 0.39),
+    'Venus': (0.615, 0.72),
+    'Earth': (1, 1),
+    'Mars': (1.88, 1.52)
+}
 
-# Orbital radius and period of the Moon
-r_moon = 3.844e8  # Orbital radius of the Moon (meters)
-T_moon = 27.3 * 24 * 3600  # Orbital period of the Moon (seconds)
+# Extracting T^2 and R^3
+T_squared = [T**2 for T, _ in planets.values()]
+R_cubed = [R**3 for _, R in planets.values()]
 
-# Range of orbital radii for calculation (from 1,000 km to 1,000,000 km)
-radii = np.linspace(1e6, 1e9, 500)  # in meters
-
-# Calculate orbital periods using Kepler's Third Law: T^2 = (4 * pi^2 * r^3) / (G * M)
-periods = 2 * np.pi * np.sqrt(radii**3 / (G * M_earth))
-
-# Convert period from seconds to days
-periods_days = periods / (60 * 60 * 24)
-
-# Plot Orbital Period vs Orbital Radius for the Earth-Moon system
+# Plotting the data
 plt.figure(figsize=(8, 6))
-plt.plot(radii / 1e6, periods_days, label='Orbital Period', color='b')
-plt.xlabel('Orbital Radius (million meters)')
-plt.ylabel('Orbital Period (days)')
-plt.title('Orbital Period vs Orbital Radius (Earth-Moon System)')
-plt.grid(True)
+plt.scatter(R_cubed, T_squared, color='blue', label='Planets')
+
+# Fitting Kepler's Law (the line)
+R_values = np.array(R_cubed)
+T_values = np.array(T_squared)
+
+# Linear fit (since T^2 vs R^3 is a straight line)
+coeffs = np.polyfit(R_values, T_values, 1)
+poly = np.poly1d(coeffs)
+R_fit = np.linspace(min(R_values), max(R_values), 100)
+T_fit = poly(R_fit)
+
+# Plotting the fitted line
+plt.plot(R_fit, T_fit, color='red', label="Kepler's Law")
+
+# Adding labels for each planet
+for i, planet in enumerate(planets.keys()):
+    plt.annotate(planet, (R_cubed[i], T_squared[i]), textcoords="offset points", xytext=(0, 10), ha='center')
+
+# Labels and title
+plt.title("Kepler's Third Law: $T^2$ vs $R^3$")
+plt.xlabel("$R^3$ (AU$^3$)")
+plt.ylabel("$T^2$ (Years$^2$)")
 plt.legend()
-plt.show()
-```
-![alt text](image-1.png)
-```python
-import numpy as np
-import matplotlib.pyplot as plt
 
-# Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_sun = 1.989e30  # Mass of the Sun (kg)
-
-# Orbital radii of the first five planets in AU
-planet_names = ['Me', 'Ve', 'Ea', 'Ma', 'Ju']  # First two letters of each planet name
-radii_au = np.array([0.387, 0.723, 1.000, 1.524, 5.203])  # in AU
-
-# Convert AU to meters
-radii_m = radii_au * 1.496e11  # Convert AU to meters
-
-# Calculate the orbital periods using Kepler's Third Law
-periods_seconds = 2 * np.pi * np.sqrt(radii_m**3 / (G * M_sun))
-
-# Convert period from seconds to Earth years
-periods_years = periods_seconds / (60 * 60 * 24 * 365.25)
-
-# Plot the graph: Orbital Period vs Orbital Radius
-plt.figure(figsize=(10, 6))
-plt.plot(radii_au, periods_years, marker='o', linestyle='-', color='b', label='Orbital Period')
-
-# Add labels to each point with adjusted positions
-for i, planet in enumerate(planet_names):
-    plt.text(radii_au[i], periods_years[i], planet, fontsize=9, ha='center', va='bottom', color='blue')
-
-# Labeling and displaying the plot
-plt.xlabel('$r^3$', fontsize=12)  # Changed label here
-plt.ylabel('$T^2$', fontsize=12)  # Changed label here
-plt.title('$T^2$ vs $r^3$ for the First Five Planets', fontsize=14)
-
-# Adjust the x and y axis limits for better fit
-plt.xlim(0, 5.5)
-plt.ylim(0, 15)
-
+# Show plot
 plt.grid(True)
-plt.xticks(np.arange(0, 6, 0.5))
-plt.yticks(np.arange(0, 16, 1))
-plt.legend()
 plt.show()
 
-
 ```
-![alt text](image-9.png)
+
+![alt text](image-10.png))
