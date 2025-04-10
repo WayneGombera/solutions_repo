@@ -156,19 +156,20 @@ for i, planet in enumerate(planet_names):
     plt.text(radii_au[i], periods_years[i], planet, fontsize=9, ha='center', va='bottom', color='blue')
 
 # Labeling and displaying the plot
-plt.xlabel('Orbital Radius (AU)', fontsize=12)
-plt.ylabel('Orbital Period (Years)', fontsize=12)
+plt.xlabel('$r^3$', fontsize=12)  # Changed label here
+plt.ylabel('$T^2$', fontsize=12)  # Changed label here
 plt.title('Orbital Period vs Orbital Radius for the First Five Planets', fontsize=14)
 
 # Adjust the x and y axis limits for better fit
-plt.xlim(0, 5.5)  # Zoom into the first five planets' orbital radii
-plt.ylim(0, 15)   # Zoom into the range of orbital periods
+plt.xlim(0, 5.5)
+plt.ylim(0, 15)
 
 plt.grid(True)
-plt.xticks(np.arange(0, 6, 0.5))  # Adjust x-axis ticks for better visibility
-plt.yticks(np.arange(0, 16, 1))   # Adjust y-axis ticks for better visibility
+plt.xticks(np.arange(0, 6, 0.5))
+plt.yticks(np.arange(0, 16, 1))
 plt.legend()
 plt.show()
 
+
 ```
-!![alt text](image-3.png)
+![alt text](image-4.png)
