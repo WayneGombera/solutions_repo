@@ -158,7 +158,7 @@ for i, planet in enumerate(planet_names):
 # Labeling and displaying the plot
 plt.xlabel('$r^3$', fontsize=12)  # Changed label here
 plt.ylabel('$T^2$', fontsize=12)  # Changed label here
-plt.title('Orbital Period vs Orbital Radius for the First Five Planets', fontsize=14)
+plt.title('$T^2$ vs $r^3$ for the First Five Planets', fontsize=14)
 
 # Adjust the x and y axis limits for better fit
 plt.xlim(0, 5.5)
@@ -172,4 +172,4 @@ plt.show()
 
 
 ```
-![alt text](image-4.png)
+![alt text](image-9.png)
