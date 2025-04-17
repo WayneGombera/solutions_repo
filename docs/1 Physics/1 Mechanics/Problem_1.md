@@ -200,4 +200,15 @@ where:
 3. **No Spin or Magnus Effect** – Rotational forces affecting range are not considered.  
 4. **Constant Acceleration Due to Gravity** – Assumes a uniform gravitational field (\( g = 9.81 \) m/s²).  
 
+## Range changing at different angles
+
+![alt text](image-5.png)
+
+## Range changing at different velocities
+
+![alt text](image-7.png)
+
+## Effects of Air Resistance
+
+![alt text](image-8.png)
 
