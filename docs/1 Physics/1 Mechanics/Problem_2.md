@@ -182,6 +182,9 @@ plt.show()
 ```
 ![alt text](image-3.png)
 
+
+![alt text](image.jpeg)
+ 
 ## 5. Practical Applications
 - **Energy Harvesting**: Utilizing resonance for efficient energy transfer.
 - **Suspension Bridges**: Preventing dangerous oscillations.
