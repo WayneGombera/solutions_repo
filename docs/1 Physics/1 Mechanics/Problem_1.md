@@ -4,7 +4,7 @@
 ## 1. Introduction
 
 ### Purpose of the Study
-In this report we will be studying the motion of a projectile. The goal of this study is to develop a clear mathematical model that describes how different factors, like the angle of launch and initial velocity, affect the range and trajectory of the projectile.
+In this report we will be studying the motion of a projectile. The goal of this study is to develop a clear mathematical model that describes how different factors, like the angle of launch and initial velocity,affect the range and trajectory of the projectile.
 
 ## 2. Theoretical Foundation
 
