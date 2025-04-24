@@ -172,73 +172,76 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<h1 id="interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</h1>
-<h2 id="motivation">Motivation</h2>
-<p>Interference occurs when two or more waves overlap in space, producing a resultant wave of greater, lower, or the same amplitude. This phenomenon is most evident on the surface of water, where ripples from different sources meet and form distinctive patterns.</p>
-<p>Studying these patterns helps us understand the <strong>principle of superposition</strong>, where the net displacement is the sum of the displacements of individual waves. Through visual simulations, we can explore <strong>constructive interference</strong> (waves reinforce) and <strong>destructive interference</strong> (waves cancel). This project provides a hands-on approach to investigating wave physics in an intuitive and engaging way.</p>
-<hr/>
-<h2 id="theoretical-background">Theoretical Background</h2>
-<h3 id="wave-equation-for-a-point-source">Wave Equation for a Point Source</h3>
-<p>A circular wave emanating from a point source located at position <span class="arithmatex">\((x_0, y_0)\)</span> on the surface of the water is described by:</p>
+<h1 id="interference-patterns-and-wave-superposition-theory-and-explanation">Interference Patterns and Wave Superposition: Theory and Explanation</h1>
+<p>Interference patterns occur when two or more waves meet and combine their displacements. This combination can either amplify or cancel out the displacements depending on the relative phase and position of the waves. The principle underlying wave interference is <strong>superposition</strong>, which states that when two or more waves overlap, the resulting wave at any given point is the algebraic sum of the displacements of the individual waves.</p>
+<p>In this task, we will explore how <strong>superposition</strong> leads to distinct interference patterns on the water surface when multiple point sources (arranged in a regular polygon) emit circular waves.</p>
+<h3 id="wave-equation-and-superposition">Wave Equation and Superposition</h3>
+<p>Consider a <strong>circular wave</strong> emitted from a point source at position <span class="arithmatex">\((x_k, y_k)\)</span> on the water surface. The displacement of the water surface at any point <span class="arithmatex">\((x, y)\)</span> at time <span class="arithmatex">\(t\)</span> due to this wave can be expressed as:</p>
 <div class="arithmatex">\[
-u(x, y, t) = A \cos\left(k r - \omega t + \phi\right)
+\eta(x, y, t) = A \cos(k r_k - \omega t + \phi_k)
 \]</div>
-<p>Where:</p>
-<ul>
-<li><span class="arithmatex">\(u(x, y, t)\)</span> is the displacement of the water surface at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(A\)</span> is the amplitude of the wave</li>
-<li><span class="arithmatex">\(r = \sqrt{(x - x_0)^2 + (y - y_0)^2}\)</span> is the distance from the point source to <span class="arithmatex">\((x, y)\)</span></li>
-<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span> is the wave number</li>
-<li><span class="arithmatex">\(\omega = 2\pi f\)</span> is the angular frequency</li>
-<li><span class="arithmatex">\(\lambda\)</span> is the wavelength</li>
-<li><span class="arithmatex">\(f\)</span> is the frequency</li>
-<li><span class="arithmatex">\(\phi\)</span> is the initial phase (assumed zero in this project)</li>
-</ul>
-<hr/>
-<h2 id="problem-statement">Problem Statement</h2>
-<p>To explore interference patterns, we place multiple point sources at the vertices of regular polygons on a water surface. Each source emits a circular wave with identical amplitude, wavelength, and frequency. The goal is to:</p>
-<ul>
-<li><strong>Simulate</strong> the superposition of these waves</li>
-<li><strong>Visualize</strong> interference patterns</li>
-<li><strong>Analyze</strong> regions of constructive and destructive interference</li>
-</ul>
-<hr/>
-<h2 id="superposition-of-waves">Superposition of Waves</h2>
-<p>If we have <span class="arithmatex">\(N\)</span> sources located at <span class="arithmatex">\((x_i, y_i)\)</span>, the total displacement at any point <span class="arithmatex">\((x, y)\)</span> on the water surface at time <span class="arithmatex">\(t\)</span> is given by:</p>
+<p>where:
+- <span class="arithmatex">\(\eta(x, y, t)\)</span> is the displacement at the point <span class="arithmatex">\((x, y)\)</span> at time <span class="arithmatex">\(t\)</span>,
+- <span class="arithmatex">\(A\)</span> is the amplitude of the wave,
+- <span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span> is the wave number, related to the wavelength <span class="arithmatex">\(\lambda\)</span>,
+- <span class="arithmatex">\(\omega = 2\pi f\)</span> is the angular frequency, related to the frequency <span class="arithmatex">\(f\)</span>,
+- <span class="arithmatex">\(r_k = \sqrt{(x - x_k)^2 + (y - y_k)^2}\)</span> is the distance from the point <span class="arithmatex">\((x, y)\)</span> to the source at <span class="arithmatex">\((x_k, y_k)\)</span>,
+- <span class="arithmatex">\(\phi_k\)</span> is the initial phase of the wave emitted from source <span class="arithmatex">\(k\)</span>.</p>
+<h3 id="principle-of-superposition">Principle of Superposition</h3>
+<p>When there are multiple point sources emitting waves, the displacement at any point on the water surface is the sum of the displacements from each source. If there are <span class="arithmatex">\(n\)</span> sources arranged in a regular polygon, the total displacement <span class="arithmatex">\(\eta_{\text{total}}(x, y, t)\)</span> at a point <span class="arithmatex">\((x, y)\)</span> is:</p>
 <div class="arithmatex">\[
-u_{\text{total}}(x, y, t) = \sum_{i=1}^{N} A \cos\left(k r_i - \omega t\right)
+\eta_{\text{total}}(x, y, t) = \sum_{k=0}^{n-1} A \cos(k r_k - \omega t + \phi_k)
 \]</div>
-<p>Where:</p>
-<div class="arithmatex">\[
-r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}
-\]</div>
-<p>This equation is used to compute the total wave field through <strong>numerical simulation</strong>.</p>
-<hr/>
-<h2 id="simulation-setup">Simulation Setup</h2>
-<ul>
-<li>All sources emit <strong>coherent waves</strong> (constant phase difference)</li>
-<li>Identical parameters:</li>
-<li>Amplitude <span class="arithmatex">\(A = 1.0\)</span></li>
-<li>Wavelength <span class="arithmatex">\(\lambda = 2.0\)</span></li>
-<li>Frequency <span class="arithmatex">\(f = 1.0\)</span></li>
-<li>Simulations are conducted on a 2D grid using <strong>NumPy</strong> and <strong>Matplotlib</strong></li>
-</ul>
-<hr/>
-<h2 id="configurations-studied">Configurations Studied</h2>
+<p>This equation incorporates the contributions of all the sources to the wave displacement at the point <span class="arithmatex">\((x, y)\)</span> at time <span class="arithmatex">\(t\)</span>.</p>
+<h3 id="interference-and-superposition-constructive-and-destructive-interference">Interference and Superposition: Constructive and Destructive Interference</h3>
+<p>The key to understanding wave superposition and the resulting interference patterns lies in how the waves from different sources interact. The result of the interaction can either be <strong>constructive interference</strong> or <strong>destructive interference</strong>:</p>
 <ol>
-<li><strong>Single Source</strong>: Circular wavefronts expanding outward</li>
-<li><strong>Two Sources</strong>: Classic interference pattern with alternating bands of constructive and destructive interference</li>
-<li><strong>Triangle Configuration</strong>: Three sources placed at the vertices of an equilateral triangle</li>
-<li><strong>Pentagon Configuration</strong>: Five sources at the vertices of a regular pentagon</li>
+<li><strong>Constructive Interference</strong>: This occurs when the displacements from two or more waves add up, leading to an increase in amplitude. For constructive interference to occur, the waves must be <strong>in phase</strong>. In other words, the peaks and troughs of the waves from different sources must align with each other. Mathematically, this happens when the phase difference between the waves is an integer multiple of <span class="arithmatex">\(2\pi\)</span>.</li>
 </ol>
-<hr/>
-<h2 id="visualizations">Visualizations</h2>
+<p>$$ \Delta \phi = 2\pi m \quad \text{where} \quad m \in \mathbb{Z} $$</p>
+<ol>
+<li><strong>Destructive Interference</strong>: This occurs when the displacements from two or more waves cancel each other out. For destructive interference to occur, the waves must be <strong>out of phase</strong>, meaning that the peak of one wave coincides with the trough of another. This results in the cancellation of their displacements. Mathematically, this happens when the phase difference between the waves is an odd multiple of <span class="arithmatex">\(\pi\)</span>.</li>
+</ol>
+<p>$$ \Delta \phi = (2m+1)\pi \quad \text{where} \quad m \in \mathbb{Z} $$</p>
+<h3 id="interference-patterns-in-regular-polygon-geometries">Interference Patterns in Regular Polygon Geometries</h3>
+<p>Now, let’s consider the specific case of regular polygons, such as an equilateral triangle, square, or pentagon, for the placement of the wave sources.</p>
+<h4 id="1-equilateral-triangle-3-sources">1. <strong>Equilateral Triangle (3 sources)</strong></h4>
+<p>For a regular <strong>triangle</strong> with three point sources, the sources are evenly spaced at <span class="arithmatex">\(120^\circ\)</span> from each other. The interference pattern in this case will show:</p>
 <ul>
-<li><strong>2D Heatmaps</strong>: Show displacement using color intensity</li>
-<li><strong>3D Surface Plots</strong> <em>(optional)</em>: Visualize wave elevation</li>
-<li><strong>Animated GIFs</strong> <em>(optional)</em>: Show time evolution of wave field</li>
+<li><strong>Constructive interference</strong>: At points where the displacements from all three sources reinforce each other. This is typically seen along the axis of symmetry of the triangle (the line joining the two opposite vertices).</li>
+<li><strong>Destructive interference</strong>: At points where the displacements cancel out. These are often observed near the center of the triangle or along the sides of the triangle, where the waves from different sources arrive out of phase with each other.</li>
 </ul>
-<p>These visualizations help highlight the geometry of wave interference, particularly in symmetrical source configurations.</p>
+<p>The interference pattern forms a hexagonal structure with alternating regions of constructive and destructive interference.</p>
+<h4 id="2-square-4-sources">2. <strong>Square (4 sources)</strong></h4>
+<p>For a regular <strong>square</strong>, the four point sources are placed at the vertices, with each source separated by <span class="arithmatex">\(90^\circ\)</span>. The interference pattern here is more symmetric than for the triangle. You will observe:</p>
+<ul>
+<li><strong>Constructive interference</strong>: Along the lines of symmetry of the square, where the waves from opposite sources align in phase and amplify each other.</li>
+<li><strong>Destructive interference</strong>: At the center of the square and at the midpoints of the sides, where the waves from adjacent sources tend to cancel out.</li>
+</ul>
+<p>The resulting interference pattern forms a grid-like structure, with high-amplitude regions at the vertices and midpoints of the square.</p>
+<h4 id="3-regular-pentagon-5-sources">3. <strong>Regular Pentagon (5 sources)</strong></h4>
+<p>For a regular <strong>pentagon</strong>, the sources are spaced at <span class="arithmatex">\(72^\circ\)</span> intervals. In this case:</p>
+<ul>
+<li><strong>Constructive interference</strong>: Occurs at specific points where the displacements from all five sources reinforce each other. This happens along the axes of symmetry of the pentagon.</li>
+<li><strong>Destructive interference</strong>: Occurs at points where the waves cancel each other out, often near the center of the pentagon or between specific pairs of sources.</li>
+</ul>
+<p>The resulting interference pattern is more intricate and exhibits star-like shapes with regions of high and low displacement.</p>
+<h3 id="geometrical-influence-on-interference-patterns">Geometrical Influence on Interference Patterns</h3>
+<p>The <strong>symmetry</strong> of the regular polygons plays a significant role in the interference pattern. The more vertices (sources) the polygon has, the more complex and intricate the interference pattern becomes. Here’s why:</p>
+<ul>
+<li>In a <strong>triangle</strong>, the symmetry is relatively simple, leading to a pattern with fewer nodes (points of destructive interference).</li>
+<li>In a <strong>square</strong>, the symmetry is higher, and the interference pattern becomes more regular and grid-like.</li>
+<li>In a <strong>pentagon</strong> or higher polygons, the symmetry increases further, leading to more intricate patterns, with finer nodes and more complex regions of constructive and destructive interference.</li>
+</ul>
+<h3 id="visualizing-the-interference-patterns">Visualizing the Interference Patterns</h3>
+<ul>
+<li><strong>Constructive Interference</strong> results in regions with high wave amplitudes, often forming distinct "bright" areas in visual representations (like a heatmap or a 3D plot).</li>
+<li><strong>Destructive Interference</strong> results in regions where the wave amplitude approaches zero, forming "dark" areas where the waves cancel out.</li>
+</ul>
+<p>As the number of sources increases (e.g., with a regular hexagon, octagon, etc.), the interference patterns become increasingly complex, with more finely detailed areas of constructive and destructive interference.</p>
+<h3 id="understanding-wave-superposition">Understanding Wave Superposition</h3>
+<p>The principle of superposition helps explain why the observed interference patterns are so sensitive to the number of sources and their positions. Each wave from a source contributes a displacement at every point on the water surface. The total displacement is determined by summing the contributions from each wave. Constructive and destructive interference arise because of the varying phases of the waves as they travel from different sources. When the waves are in phase, they reinforce each other; when they are out of phase, they cancel each other out.</p>
+<p>The <strong>geometry</strong> of the polygon determines how the waves interact, with symmetry playing a key role in determining the locations of constructive and destructive interference.</p>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
 <p>The simulation clearly demonstrates the wave interference phenomena:</p>
