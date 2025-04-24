@@ -7,43 +7,121 @@ The forced damped pendulum is an ideal system to study how damping, restoring fo
 
 ## 1. Theoretical Foundation
 
-### Differential Equation for Forced Damped Pendulum
+# Pendulum Motion and Interference
 
-The motion of a forced damped pendulum is described by the following differential equation:
+## System of Equations
+
+The motion of a pendulum can be described by the following second-order differential equation:
 
 $$
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = F_0 \cos(\omega t)
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
 $$
 
 Where:
-- \( \theta \) is the angular displacement,
-- \( \gamma \) is the damping coefficient,
+- \( \theta(t) \) is the angle of the pendulum at time \( t \),
+- \( b \) is the damping coefficient,
 - \( g \) is the gravitational acceleration,
 - \( L \) is the length of the pendulum,
-- \( F_0 \) is the amplitude of the external driving force,
+- \( A \) is the amplitude of the external force,
+- \( \omega \) is the angular frequency of the external force.
+
+### Scenarios
+
+For different scenarios, the differential equation changes as follows:
+
+#### 1. **Pure Pendulum (No damping, No external force)**
+
+For the pure pendulum, there is no damping (\( b = 0 \)) and no external force (\( A = 0 \)). The equation becomes:
+
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = 0
+$$
+
+This represents the standard equation for an undamped pendulum, where the motion is purely due to gravity.
+
+#### 2. **Pendulum with Damping (Damping, No external force)**
+
+For a pendulum with damping, the damping term (\( b \)) is non-zero, but there is still no external force (\( A = 0 \)). The equation becomes:
+
+$$
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = 0
+$$
+
+In this case, the damping term \( b \) causes the amplitude of oscillations to decrease over time, eventually leading to the pendulum coming to rest.
+
+#### 3. **Pendulum with External Force (No damping, External force)**
+
+When there is an external force applied to the pendulum, the damping coefficient \( b \) is set to zero, and an external force \( A \cos(\omega t) \) is applied. The equation becomes:
+
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+$$
+
+In this case, the external force can drive the pendulum to oscillate with a constant amplitude, depending on the frequency \( \omega \) of the force and the natural frequency of the pendulum.
+
+#### 4. **Forced Damped Pendulum (Both damping and external force)**
+
+In the forced damped pendulum scenario, both the damping term \( b \) and the external force \( A \cos(\omega t) \) are present. The equation becomes:
+
+$$
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+$$
+
+This combined system leads to a more complex behavior, where the damping and external force interact, potentially leading to resonant oscillations or chaotic behavior under certain conditions.
+
+### Equations Summary
+
+For a general forced damped pendulum system:
+
+$$
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+$$
+
+Where:
+- \( \theta(t) \) is the angular displacement at time \( t \),
+- \( b \) is the damping coefficient,
+- \( g \) is the gravitational acceleration,
+- \( L \) is the length of the pendulum,
+- \( A \) is the amplitude of the external force,
 - \( \omega \) is the frequency of the external force.
 
-For small-angle approximations (\( \theta \) small), we can simplify \( \sin \theta \approx \theta \), yielding:
+## Explanation of Motion
+
+### 1. **Pure Pendulum**:
+For the pure pendulum case, the motion is driven solely by gravity. The angle \( \theta(t) \) oscillates in a simple harmonic manner, with the period depending on the length of the pendulum \( L \) and the gravitational acceleration \( g \). The equation for the pure pendulum is:
 
 $$
-\frac{d^2 \theta}{dt^2} + 2 \gamma \frac{d \theta}{dt} + \frac{g}{L} \theta = F_0 \cos(\omega t)
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = 0
 $$
 
-This is a second-order linear non-homogeneous ODE.
+### 2. **Pendulum with Damping**:
+When damping is introduced, the oscillations are gradually reduced over time due to the energy lost in each cycle. The equation becomes:
 
-### Solution for Small-Angle Oscillations
+$$
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = 0
+$$
 
-For small oscillations, the solution to this equation involves:
-- The homogeneous solution for damping and natural frequency, and
-- A particular solution for the external driving force.
+The damping term \( b \) causes the pendulum to lose energy, and the oscillations eventually decay.
 
-The general solution combines both, with resonance occurring when \( \omega \approx \omega_0 \), where \( \omega_0 = \sqrt{\frac{g}{L}} \).
+### 3. **Pendulum with External Force**:
+Introducing an external force to the system allows the pendulum to oscillate with a constant amplitude, depending on the external frequency \( \omega \). The equation becomes:
 
-### Resonance Conditions and Energy Implications
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+$$
 
-At resonance (\( \omega = \omega_0 \)), the system absorbs energy efficiently from the external force, leading to large oscillations. Damping reduces the amplitude of oscillations at resonance, preventing them from growing indefinitely.
+This can lead to resonant behavior if the frequency \( \omega \) of the external force matches the natural frequency of the pendulum.
 
-## 2. Analysis of Dynamics
+### 4. **Forced Damped Pendulum**:
+For the forced damped pendulum, the equation includes both damping and external forcing, leading to more complex behavior:
+
+$$
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+$$
+
+The interaction between damping and external forcing can lead to chaotic behavior if the driving force frequency is close to the system's natural frequency (resonance), or the system may oscillate with large amplitudes under certain conditions.
+
+
 
 ### Influence of Damping, Driving Amplitude, and Frequency
 
@@ -107,41 +185,71 @@ plt.show()
 By varying \( A \) and \( \omega \), the pendulum can exhibit periodic, quasiperiodic, or chaotic motion.Phase space plots and Poincaré sections illustrate these behaviors.
 
 ```python
+
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import odeint
+from scipy.integrate import solve_ivp
 
-def pendulum_equations(y, t, gamma, omega0, A, omega):
-    theta, v = y
-    dydt = [v, -gamma * v - omega0**2 * np.sin(theta) + A * np.cos(omega * t)]
-    return dydt
+# Constants
+g = 9.81  # gravitational acceleration (m/s^2)
+L = 1.0   # length of the pendulum (m)
+omega_ext = 2 * np.pi  # external force frequency (rad/s)
 
-# Parameters
-gamma = 0.5  # Damping coefficient
-omega0 = 1.5  # Natural frequency
-A = 1.2       # Driving force amplitude
-omega = 2.0   # Driving frequency
+# Differential equation for the pendulum
+def pendulum_eq(t, y, b, A):
+    theta, omega = y
+    dtheta_dt = omega
+    domega_dt = - (g / L) * np.sin(theta) - b * omega + A * np.cos(omega_ext * t)
+    return [dtheta_dt, domega_dt]
 
-# Initial conditions
-y0 = [0.1, 0]  # Initial angle and velocity
+# Function to solve the pendulum equations
+def solve_pendulum(b, A, t_span, initial_conditions):
+    sol = solve_ivp(pendulum_eq, t_span, initial_conditions, args=(b, A), dense_output=True)
+    return sol
 
-t = np.linspace(0, 50, 1000)  # Time array
+# Time span for simulation
+t_span = (0, 10)  # time interval (seconds)
+t_eval = np.linspace(0, 10, 500)
 
-# Solve ODE
-y = odeint(pendulum_equations, y0, t, args=(gamma, omega0, A, omega))
+# Initial conditions: [initial angle, initial angular velocity]
+initial_conditions = [np.pi / 4, 0]  # 45 degrees, initial velocity 0
 
-# Plot results
-plt.figure(figsize=(10, 5))
-plt.plot(y[:, 0], y[:, 1], label='Phase Space')
-plt.xlabel('Theta (angle)')
-plt.ylabel('Angular velocity')
-plt.title('Phase Portrait of Forced Damped Pendulum')
+# Scenarios
+scenarios = [
+    {"b": 0, "A": 0, "label": "Pure Pendulum (b=0, A=0)"},  # Pure pendulum
+    {"b": 0.1, "A": 0, "label": "Damped Pendulum (b!=0, A=0)"},  # Damped pendulum
+    {"b": 0, "A": 0.5, "label": "Pendulum with External Force (b=0, A!=0)"},  # Pendulum with external force
+    {"b": 0.1, "A": 0.5, "label": "Forced Damped Pendulum (b!=0, A!=0) - Chaotic"}  # Forced damped pendulum (chaotic)
+]
+
+# Plotting each scenario
+plt.figure(figsize=(14, 10))
+for scenario in scenarios:
+    sol = solve_pendulum(scenario['b'], scenario['A'], t_span, initial_conditions)
+    theta, omega = sol.sol(t_eval)
+    
+    # Plotting Angle vs Time
+    plt.subplot(2, 2, 1)
+    plt.plot(t_eval, theta, label=scenario['label'])
+    plt.xlabel("Time (s)")
+    plt.ylabel("Angle (radians)")
+    plt.title("Angle vs Time")
+    
+    # Plotting Phase Diagram (Angle vs Angular Velocity)
+    plt.subplot(2, 2, 2)
+    plt.plot(theta, omega, label=scenario['label'])
+    plt.xlabel("Angle (radians)")
+    plt.ylabel("Angular Velocity (rad/s)")
+    plt.title("Phase Diagram (Angle vs Angular Velocity)")
+    
 plt.legend()
-plt.grid()
+plt.tight_layout()
 plt.show()
+
+
 ```
 
-![alt text](image-2.png)
+![alt text](image-10.png)
 
 ## Poincare System
 ```python
@@ -181,9 +289,6 @@ plt.grid()
 plt.show()
 ```
 ![alt text](image-3.png)
-
-
-![alt text](image.jpeg)
  
 ## 5. Practical Applications
 - **Energy Harvesting**: Utilizing resonance for efficient energy transfer.
