@@ -88,200 +88,67 @@ To simulate the trajectory of a freely released payload, we will numerically int
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
 
 # Constants
-G = 6.67430e-11  # Gravitational constant (Nm^2/kg^2)
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
 M_earth = 5.972e24  # Mass of Earth (kg)
-r_earth = 6.371e6  # Radius of Earth (m)
+R_earth = 6371e3  # Earth radius (m)
+h = 800e3  # Initial altitude (m)
+initial_r = R_earth + h  # Initial distance from Earth's center
 
 # Initial conditions
-initial_position = np.array([7000e3, 0])  # Initial position (7000 km from Earth's center)
-initial_velocity = np.array([0, 7.12e3])  # Initial velocity (7.12 km/s tangential velocity)
+initial_velocities = np.arange(5, 13.5, 0.5) * 1000  # Convert km/s to m/s
+theta = np.linspace(0, 2*np.pi, 100)
 
-# Time setup
-t0 = 0  # Initial time
-tf = 6000  # Final time (seconds)
-dt = 10  # Time step (seconds)
-time_points = np.arange(t0, tf, dt)
+# Set up plot
+fig, ax = plt.subplots(figsize=(10, 10))
+ax.set_aspect('equal')
+ax.set_xlim(-2*initial_r, 2*initial_r)
+ax.set_ylim(-2*initial_r, 2*initial_r)
+ax.set_xlabel('Distance (m)')
+ax.set_ylabel('Distance (m)')
+ax.set_title('Payload Trajectories from 800 km Altitude')
 
-# Runge-Kutta integration method
-def acceleration(position):
-    r = np.linalg.norm(position)
-    return -G * M_earth * position / r**3
+# Draw Earth
+earth = Circle((0, 0), R_earth, color='blue', alpha=0.3, label='Earth')
+ax.add_patch(earth)
 
-def runge_kutta(position, velocity, dt):
-    k1v = acceleration(position)
-    k1p = velocity
+# Initial position (right side of Earth)
+initial_pos = (initial_r, 0)
+
+# Function to calculate trajectory
+def calculate_trajectory(v0, max_steps=100000, dt=10):
+    x, y = [initial_r], [0]
+    vx, vy = 0, v0  # Initial velocity is purely tangential
     
-    k2v = acceleration(position + 0.5 * dt * k1p)
-    k2p = velocity + 0.5 * dt * k1v
-    
-    k3v = acceleration(position + 0.5 * dt * k2p)
-    k3p = velocity + 0.5 * dt * k2v
-    
-    k4v = acceleration(position + dt * k3p)
-    k4p = velocity + dt * k3v
-    
-    new_position = position + (dt / 6) * (k1p + 2*k2p + 2*k3p + k4p)
-    new_velocity = velocity + (dt / 6) * (k1v + 2*k2v + 2*k3v + k4v)
-    
-    return new_position, new_velocity
+    for _ in range(max_steps):
+        r = np.sqrt(x[-1]**2 + y[-1]**2)
+        if r < R_earth:
+            break  # Stop if hits Earth
+        
+        # Gravitational acceleration
+        a = -G * M_earth / r**2
+        ax = a * x[-1]/r
+        ay = a * y[-1]/r
+        
+        # Update velocity and position
+        vx += ax * dt
+        vy += ay * dt
+        x.append(x[-1] + vx * dt)
+        y.append(y[-1] + vy * dt)
+        
+    return x, y
 
-# Initial conditions
-position = initial_position
-velocity = initial_velocity
+# Plot trajectories for different velocities
+for v0 in initial_velocities:
+    x, y = calculate_trajectory(v0)
+    label = f'{v0/1000:.1f} km/s'
+    ax.plot(x, y, label=label)
+    ax.plot(initial_r, 0, 'ro')  # Initial position
 
-# Lists for storing the results
-positions = []
-velocities = []
-
-# Run the simulation
-for t in time_points:
-    positions.append(position)
-    velocities.append(velocity)
-    position, velocity = runge_kutta(position, velocity, dt)
-
-# Convert the positions to numpy arrays for plotting
-positions = np.array(positions)
-
-# Plot the trajectory
-plt.figure(figsize=(8, 8))
-plt.plot(positions[:, 0] / 1e3, positions[:, 1] / 1e3, label="Payload Trajectory")
-plt.scatter(0, 0, color='red', label="Earth", s=100)
-plt.title("Trajectory of Freely Released Payload Near Earth")
-plt.xlabel("X Position (km)")
-plt.ylabel("Y Position (km)")
-plt.grid(True)
-plt.legend()
-plt.axis('equal')
+ax.legend()
+plt.grid()
 plt.show()
 ```
-![alt text](image-5.png)
-
-Parabolic Trajectory: This plot will show the path of an object with escape velocity from Earth, which will travel outward and return.
-
-Elliptical Trajectory: The object follows an elliptical orbit, returning to Earth.
-
-Hyperbolic Trajectory: The object escapes Earth's gravitational field, following a hyperbolic path outwards indefinitely.
-
-Each graph will also include a yellow dot representing Earth at the origin (0, 0) and will display the trajectory path of the object. The axis('equal') ensures that the axes have the same scaling for accurate representation of the orbital shape.
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants
-G = 6.67430e-11  # Gravitational constant (Nm^2/kg^2)
-M_earth = 5.972e24  # Mass of Earth (kg)
-r_earth = 6.371e6  # Radius of Earth (m)
-
-# Initial conditions for each type of trajectory:
-# 1. Parabolic: Exact escape velocity (7.12 km/s)
-# 2. Elliptical: A velocity less than escape velocity
-# 3. Hyperbolic: A velocity greater than escape velocity
-
-# Time setup
-t0 = 0  # Initial time
-tf = 6000  # Final time (seconds)
-dt = 10  # Time step (seconds)
-time_points = np.arange(t0, tf, dt)
-
-# Acceleration due to gravity (Newton's Law)
-def acceleration(position):
-    r = np.linalg.norm(position)
-    return -G * M_earth * position / r**3
-
-# Runge-Kutta method
-def runge_kutta(position, velocity, dt):
-    k1v = acceleration(position)
-    k1p = velocity
-    
-    k2v = acceleration(position + 0.5 * dt * k1p)
-    k2p = velocity + 0.5 * dt * k1v
-    
-    k3v = acceleration(position + 0.5 * dt * k2p)
-    k3p = velocity + 0.5 * dt * k2v
-    
-    k4v = acceleration(position + dt * k3p)
-    k4p = velocity + dt * k3v
-    
-    new_position = position + (dt / 6) * (k1p + 2*k2p + 2*k3p + k4p)
-    new_velocity = velocity + (dt / 6) * (k1v + 2*k2v + 2*k3v + k4v)
-    
-    return new_position, new_velocity
-
-# Define initial conditions for the different types of trajectories
-
-# Parabolic trajectory (escape velocity, 7.12 km/s tangential)
-initial_position_parabolic = np.array([7000e3, 0])  # 7000 km from Earth's center
-initial_velocity_parabolic = np.array([0, 7.12e3])  # Parabolic velocity (7.12 km/s tangential)
-
-# Elliptical trajectory (velocity less than escape velocity, 5 km/s)
-initial_position_elliptical = np.array([7000e3, 0])  # 7000 km from Earth's center
-initial_velocity_elliptical = np.array([0, 5e3])  # Elliptical velocity (5 km/s tangential)
-
-# Hyperbolic trajectory (velocity greater than escape velocity, 10 km/s)
-initial_position_hyperbolic = np.array([7000e3, 0])  # 7000 km from Earth's center
-initial_velocity_hyperbolic = np.array([0, 10e3])  # Hyperbolic velocity (10 km/s tangential)
-
-# List to store results for each trajectory type
-positions_parabolic = []
-positions_elliptical = []
-positions_hyperbolic = []
-
-# Run simulations for each trajectory
-def simulate_trajectory(initial_position, initial_velocity):
-    position = initial_position
-    velocity = initial_velocity
-    positions = []
-
-    for t in time_points:
-        positions.append(position)
-        position, velocity = runge_kutta(position, velocity, dt)
-    
-    return np.array(positions)
-
-# Simulate all three types of trajectories
-positions_parabolic = simulate_trajectory(initial_position_parabolic, initial_velocity_parabolic)
-positions_elliptical = simulate_trajectory(initial_position_elliptical, initial_velocity_elliptical)
-positions_hyperbolic = simulate_trajectory(initial_position_hyperbolic, initial_velocity_hyperbolic)
-
-# Plot the results for Parabolic trajectory
-plt.figure(figsize=(8, 6))
-plt.plot(positions_parabolic[:, 0] / 1e3, positions_parabolic[:, 1] / 1e3, label="Parabolic Trajectory (Escape Velocity)", color='blue')
-plt.scatter(0, 0, color='yellow', label="Earth", s=100)
-plt.title("Parabolic Trajectory (Escape Velocity)")
-plt.xlabel("X Position (km)")
-plt.ylabel("Y Position (km)")
-plt.grid(True)
-plt.legend()
-plt.axis('equal')
-plt.show()
-
-# Plot the results for Elliptical trajectory
-plt.figure(figsize=(8, 6))
-plt.plot(positions_elliptical[:, 0] / 1e3, positions_elliptical[:, 1] / 1e3, label="Elliptical Trajectory (Sub-Escape Velocity)", color='green')
-plt.scatter(0, 0, color='yellow', label="Earth", s=100)
-plt.title("Elliptical Trajectory (Sub-Escape Velocity)")
-plt.xlabel("X Position (km)")
-plt.ylabel("Y Position (km)")
-plt.grid(True)
-plt.legend()
-plt.axis('equal')
-plt.show()
-
-# Plot the results for Hyperbolic trajectory
-plt.figure(figsize=(8, 6))
-plt.plot(positions_hyperbolic[:, 0] / 1e3, positions_hyperbolic[:, 1] / 1e3, label="Hyperbolic Trajectory (Super-Escape Velocity)", color='red')
-plt.scatter(0, 0, color='yellow', label="Earth", s=100)
-plt.title("Hyperbolic Trajectory (Super-Escape Velocity)")
-plt.xlabel("X Position (km)")
-plt.ylabel("Y Position (km)")
-plt.grid(True)
-plt.legend()
-plt.axis('equal')
-plt.show()
-```
-![alt text](image-8.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
+![alt text](image-13.png)
