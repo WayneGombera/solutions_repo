@@ -111,7 +111,7 @@ $$
 
 ##
 
-<video controls src="download.mp4" title="Title"></video>
+![alt text](image.png)
 
 
 ## Discussion
