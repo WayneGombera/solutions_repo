@@ -5,7 +5,7 @@
 
 The Central Limit Theorem (CLT) is one of the most fundamental concepts in statistics. It states that, regardless of the population's distribution, the sampling distribution of the sample mean will tend to be approximately normally distributed if the sample size is sufficiently large. This holds true for any underlying population distribution with finite variance.
 
-The key takeaway is that the **distribution of the sample mean becomes approximately normal** as the sample size increases, even if the population itself is not normal. The CLT is crucial in statistical inference, where it justifies the use of the normal distribution for hypothesis testing and confidence intervals, among other applications.
+The key takeaway is that the **distribution of the sample mean becomes approximately normal** as the sample size increases, even if the population itself is not normal. The CLT is crucial in statistical inference,where it justifies the use of the normal distribution for hypothesis testing and confidence intervals, among other applications.
 
 ## Motivation
 
