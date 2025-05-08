@@ -120,7 +120,7 @@ $$
 
 - Standard value of \( g \) ≈ $$ 9.81 \, \text{m/s}^2 $$
 - Measured value: $$ 9.61 \pm 0.08 \, \text{m/s}^2 $$
-- Deviation: $$ \approx 0.20 \, \text{m/s}^2 $$, which is more than the uncertainty margin, suggesting possible systematic error.
+- Deviation: $$ \approx 0.20 \, \text{m/s}^2 $$, which is more than the uncertainty margin, suggesting possible systematic error
 
 ### Sources of Uncertainty
 
