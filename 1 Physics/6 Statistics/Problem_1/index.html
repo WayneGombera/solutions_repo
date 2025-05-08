@@ -172,6 +172,42 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="central-limit-theorem-clt-exploration-through-simulations">Central Limit Theorem (CLT) Exploration through Simulations</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The Central Limit Theorem (CLT) is one of the most fundamental concepts in statistics. It states that, regardless of the population's distribution, the sampling distribution of the sample mean will tend to be approximately normally distributed if the sample size is sufficiently large. This holds true for any underlying population distribution with finite variance.</p>
+<p>The key takeaway is that the <strong>distribution of the sample mean becomes approximately normal</strong> as the sample size increases, even if the population itself is not normal. The CLT is crucial in statistical inference, where it justifies the use of the normal distribution for hypothesis testing and confidence intervals, among other applications.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Simulations provide an excellent way to visualize and understand how the Central Limit Theorem works in practice. By drawing random samples from various population distributions and calculating the sample means, we can observe how these sample means form a normal distribution as the sample size increases.</p>
+<p>In this task, we explore how the sample means converge to normality by using three different population distributions:
+1. <strong>Uniform Distribution</strong>: All outcomes are equally likely.
+2. <strong>Exponential Distribution</strong>: Values are drawn from a distribution with a constant hazard rate.
+3. <strong>Binomial Distribution</strong>: A distribution describing the number of successes in a fixed number of Bernoulli trials.</p>
+<p>We will generate a large dataset for each distribution and then sample random subsets of varying sizes to calculate the sample means.</p>
+<h2 id="methodology">Methodology</h2>
+<h3 id="steps">Steps:</h3>
+<ol>
+<li><strong>Simulating Population Distributions</strong>: We generate large datasets for each of the three population distributions: uniform, exponential, and binomial.</li>
+<li><strong>Sampling and Calculating Sample Means</strong>: For each population, we randomly sample data for different sample sizes (5, 10, 30, and 50) and calculate the mean of each sample.</li>
+<li><strong>Visualization</strong>: We plot histograms of the sample means for each sample size and observe how they approach a normal distribution as the sample size increases.</li>
+</ol>
+<h3 id="parameters">Parameters:</h3>
+<ul>
+<li><strong>Population size</strong>: 100,000 (for each distribution).</li>
+<li><strong>Sample sizes</strong>: 5, 10, 30, 50.</li>
+<li><strong>Number of simulations</strong>: 1,000 samples for each sample size.</li>
+</ul>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<p><img alt="alt text" src="../image-8.png"/></p>
+<p><img alt="alt text" src="../image-9.png"/></p>
+<p><img alt="alt text" src="../image-10.png"/></p>
+<p><img alt="alt text" src="../image-11.png"/></p>
+<p><img alt="alt text" src="../image-12.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
