@@ -193,6 +193,8 @@ plt.show()
 
 ![alt text](image-12.png)
 
+collab = https://colab.research.google.com/drive/1OUCKy3RlZUdiVgR161noFqxtuGGNpAVe?usp=sharing
+
 # Importance in Space Exploration
 
 ## 4.1 Launching Satellites

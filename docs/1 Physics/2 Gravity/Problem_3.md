@@ -1,7 +1,7 @@
 # Problem 3
 # 🌌 Trajectories of a Freely Released Payload Near Earth
 
-## 🛸 Introduction
+##  Introduction
 
 When a payload is released from a high-speed spacecraft orbiting Earth, its subsequent trajectory is determined by a combination of initial velocity, position, and gravitational forces exerted by Earth. Understanding the various potential trajectories — such as elliptical orbits, escape trajectories, and free fall — is critical for mission planning, including satellite deployment, planetary exploration, or payload reentry.
 
@@ -9,7 +9,7 @@ This problem explores the impact of different initial velocities and release poi
 
 ---
 
-## 📚 Theoretical Background
+##  Theoretical Background
 
 The motion of a freely released payload near Earth is governed by **Newton's Law of Universal Gravitation**, which gives the gravitational force \( F \) between two masses \( m_1 \) (the payload) and \( m_2 \) (the Earth) as:
 
@@ -39,7 +39,7 @@ Where:
 
 ---
 
-## 🔭 Types of Trajectories
+##  Types of Trajectories
 
 1. **Parabolic Trajectory**:
     A parabolic trajectory occurs when the object has just enough velocity to escape Earth's gravitational field but not enough to continue moving indefinitely. The velocity needed for a parabolic trajectory is the **escape velocity**.
@@ -74,7 +74,7 @@ Where:
 
 ---
 
-## ⚙️ Numerical Method: Runge-Kutta Integration
+##  Numerical Method: Runge-Kutta Integration
 
 To simulate the trajectory of a freely released payload, we will numerically integrate the equations of motion using the **Runge-Kutta method**, which is a fourth-order method providing more accurate solutions than the Euler method. The method involves:
 
@@ -83,7 +83,7 @@ To simulate the trajectory of a freely released payload, we will numerically int
 
 ---
 
-## 🛠️ Python Implementation
+##  Python Implementation
 
 ```python
 import numpy as np

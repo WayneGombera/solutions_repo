@@ -53,3 +53,5 @@ We will generate a large dataset for each distribution and then sample random su
 ![alt text](image-11.png)
 
 ![alt text](image-12.png)
+
+https://colab.research.google.com/drive/1JvFfGikm7bxZ_4QBYnFxSTM6mrrG63lV#scrollTo=0orVusheLjpr&line=9&uniqifier=1
