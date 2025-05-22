@@ -148,3 +148,5 @@ We visualize the surface $z = \Psi(x, y, t)$ at a fixed time $t$.
 The resulting 3D surface plot shows the amplitude of the water surface at different points $(x, y)$.
 
 ![alt text](image-4.png)
+
+![alt text](image-5.png)

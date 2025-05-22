@@ -145,4 +145,4 @@ $$
 
 ## Conclusion
 
-The experimental value of $$ g = 9.61 \pm 0.08 \, \text{m/s}^2 $$ is reasonably close to the standard value, demonstrating the validity of using a simple pendulum for estimating gravitational acceleration. This experiment also highlights the importance of uncertainty analysis in experimental physics.
+The experimental value of g  is reasonably close to the standard value, demonstrating the validity of using a simple pendulum for estimating gravitational acceleration. This experiment also highlights the importance of uncertainty analysis in experimental physics.
