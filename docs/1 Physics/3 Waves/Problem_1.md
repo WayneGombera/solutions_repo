@@ -149,4 +149,6 @@ The resulting 3D surface plot shows the amplitude of the water surface at differ
 
 ![alt text](image-4.png)
 
+## 3D Source Intereference Pattern
+
 ![alt text](download.gif)
