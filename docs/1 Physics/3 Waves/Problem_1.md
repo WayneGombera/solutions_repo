@@ -110,108 +110,41 @@ By changing the number and placement of wave sources, we can visualize complex i
 
 ---
 
-
-
-```python
-
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-# Wave parameters
-A = 1.0                     # Amplitude
-wavelength = 2.0
-k = 2 * np.pi / wavelength  # Wave number
-f = 1.0
-omega = 2 * np.pi * f       # Angular frequency
-t = 0                       # Time snapshot
-
-# Grid setup
-x = np.linspace(-10, 10, 300)
-y = np.linspace(-10, 10, 300)
-X, Y = np.meshgrid(x, y)
-
-# Distance from single source at origin
-R = np.sqrt(X**2 + Y**2)
-U = A * np.cos(k * R - omega * t)
-
-# 2D Heatmap
-plt.figure(figsize=(6, 5))
-plt.pcolormesh(X, Y, U, cmap='RdBu', shading='auto')
-plt.colorbar(label='Amplitude')
-plt.title('Wave Heatmap from Single Source')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.axis('equal')
-plt.tight_layout()
-plt.show()
-
-plt.show()
-```
-
-
 ![alt text](image.png)
 
-```python
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Wave and grid parameters
-A = 1.0                     # Amplitude
-wavelength = 2.0
-k = 2 * np.pi / wavelength  # Wave number
-f = 1.0
-omega = 2 * np.pi * f       # Angular frequency
-t = 0                       # Time snapshot
-
-# Define grid
-x = np.linspace(-10, 10, 300)
-y = np.linspace(-10, 10, 300)
-X, Y = np.meshgrid(x, y)
-
-# Function to generate source positions for regular polygons
-def generate_sources(N, radius=5.0):
-    angles = np.linspace(0, 2*np.pi, N, endpoint=False)
-    return np.array([[radius * np.cos(a), radius * np.sin(a)] for a in angles])
-
-# Superposition of waves from multiple sources
-def compute_wave(X, Y, sources):
-    U = np.zeros_like(X)
-    for sx, sy in sources:
-        R = np.sqrt((X - sx)**2 + (Y - sy)**2)
-        U += A * np.cos(k * R - omega * t)
-    return U
-
-# Plotting helper
-def plot_wave(U, title):
-    plt.figure(figsize=(6, 5))
-    plt.pcolormesh(X, Y, U, shading='auto', cmap='RdBu', vmin=-3, vmax=3)
-    plt.colorbar(label='Displacement')
-    plt.title(title)
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.axis('equal')
-    plt.tight_layout()
-    plt.show()
-
-# 1. Two sources (placed symmetrically on x-axis)
-sources_two = np.array([[-3, 0], [3, 0]])
-U_two = compute_wave(X, Y, sources_two)
-plot_wave(U_two, 'Interference Pattern from Two Sources')
-
-# 2. Triangle (3-point regular polygon)
-sources_triangle = generate_sources(3)
-U_triangle = compute_wave(X, Y, sources_triangle)
-plot_wave(U_triangle, 'Interference Pattern from Triangle')
-
-# 3. Pentagon (5-point regular polygon)
-sources_pentagon = generate_sources(5)
-U_pentagon = compute_wave(X, Y, sources_pentagon)
-plot_wave(U_pentagon, 'Interference Pattern from Pentagon')
-
-
-```
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
+
+# 3D Interference Pattern from Two Point Sources
+
+We model the interference of two circular waves emitted from coherent sources located at positions $\vec{r}_1 = (-d, 0)$ and $\vec{r}_2 = (d, 0)$ on a 2D water surface.
+
+Each source emits waves described by:
+
+$$
+\psi_i(\vec{r}, t) = A \cos(k |\vec{r} - \vec{r}_i| - \omega t)
+$$
+
+Where:
+- $A$ is the amplitude,
+- $k = \frac{2\pi}{\lambda}$ is the wave number,
+- $\omega = 2\pi f$ is the angular frequency,
+- $\vec{r}_i$ is the position of source $i$.
+
+The total wave displacement at position $\vec{r}$ and time $t$ is:
+
+$$
+\Psi(\vec{r}, t) = \psi_1(\vec{r}, t) + \psi_2(\vec{r}, t)
+$$
+
+We visualize the surface $z = \Psi(x, y, t)$ at a fixed time $t$.
+
+## Interference Interpretation
+
+- **Constructive interference**: occurs when the path difference $|\vec{r} - \vec{r}_1| - |\vec{r} - \vec{r}_2|$ is a multiple of the wavelength $\lambda$.
+- **Destructive interference**: occurs when the path difference is a half-integer multiple of $\lambda$.
+
+The resulting 3D surface plot shows the amplitude of the water surface at different points $(x, y)$.
+
+![alt text](image-4.png)
