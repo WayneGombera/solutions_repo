@@ -118,52 +118,17 @@ $$
 R \approx 48.6 \text{ meters}
 $$
 
----
-
 1. **For the same velocity, increasing the angle affects range differently.**  
 2. **The maximum range occurs at 45**  
 3. **Higher velocity results in a longer range.**  
-
-## Phython Script for plotting graph
-```python
-```import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants
-g = 9.81  # Gravity (m/s²)
-angles = np.linspace(0, 90, 100)  # Angles from 0° to 90°
-
-# Initial velocities to compare
-velocities = [10, 20, 30]  # m/s
-
-# Function to calculate range
-def calculate_range(v0, theta):
-    return (v0**2 * np.sin(2 * np.radians(theta))) / g
-
-# Plot range vs. angle for different velocities
-plt.figure(figsize=(8, 5))
-
-for v0 in velocities:
-    ranges = calculate_range(v0, angles)
-    plt.plot(angles, ranges, label=f"$v_0$ = {v0} m/s")
-
-# Graph Formatting
-plt.xlabel("Launch Angle (°)")
-plt.ylabel("Range (m)")
-plt.title("Projectile Range vs. Angle")
-plt.legend()
-plt.grid(True)
-
-# Show the graph
-plt.show()
-```
-
-![alt text](image.png)
 
 # Projectile Range vs. Angle
 
 ## Description
 The graph illustrates the relationship between the launch angle and the projectile range (m) for different initial velocities. The three curves represent:
+
+
+![alt text](image.png)
 
 **Blue Curve:**  
 $ v_0 $= 10  m/s  
@@ -210,5 +175,6 @@ where:
 
 ## Effects of Air Resistance
 
-![alt text](image-8.png)
+![alt text](image-12.png)
+
 
