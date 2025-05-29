@@ -1,148 +1,191 @@
-# Problem 1
-
-# Measuring the Acceleration Due to Gravity Using a Simple Pendulum
+ 
+# Measuring the Acceleration Due to Gravity Using a 5 złoty Coin Pendulum
 
 ## Objective
-To measure the acceleration due to gravity \( g \) using a simple pendulum and rigorously analyze the uncertainties involved in the measurements.
+
+To determine the acceleration due to gravity $$ g $$ using a simple pendulum made with a 5 złoty coin, and analyze the uncertainties involved in the experiment.
 
 ## Materials
 
-- String (length: 1.5 m)
-- Weight (e.g., bag of coins)
-- Stopwatch (±0.01 s resolution)
-- Measuring tape (±0.001 m resolution)
-- Protractor (optional, for ensuring small angle)
+- String (length: approximately 60 cm)
+- 5 złoty coin (mass ≈ 6.54 g, diameter ≈ 24 mm)
+- Stopwatch (resolution: ±0.01 s)
+- Measuring tape (resolution: ±0.001 m)
 
 ## Procedure
 
 ### 1. Setup
 
-The pendulum was suspended from a fixed point. The length \( L \) of the pendulum was measured from the point of suspension to the center of mass of the weight.
+A 5 złoty coin was tied securely to one end of a string and suspended from a fixed support. The pendulum length $$ L $$ was measured from the point of suspension to the **center of the coin**.
 
-- $$ L = 1.500 \, \text{m} $$
-- $$ \delta L = \pm 0.001 \, \text{m} $$
+Length:
+
+$$
+L = 0.600 \, \text{m}, \quad \delta L = \pm 0.001 \, \text{m}
+$$
 
 ### 2. Data Collection
 
-The pendulum was displaced by an angle less than \( 15^\circ \). For each trial, the time for 10 oscillations was measured using a stopwatch. This process was repeated 10 times.
+The pendulum was displaced by an angle less than $$ 15^\circ $$ and released. The time for 10 full oscillations was recorded using a stopwatch. This was repeated 10 times for accuracy.
 
-## Tabulated Data
+### Measurement Data
 
 | Trial | Time for 10 Oscillations (s) |
 |-------|-------------------------------|
-| 1     | 24.81                         |
-| 2     | 24.76                         |
-| 3     | 24.85                         |
-| 4     | 24.78                         |
-| 5     | 24.83                         |
-| 6     | 24.79                         |
-| 7     | 24.77                         |
-| 8     | 24.86                         |
-| 9     | 24.80                         |
-| 10    | 24.84                         |
+| 1     | 15.53                         |
+| 2     | 15.48                         |
+| 3     | 15.52                         |
+| 4     | 15.54                         |
+| 5     | 15.50                         |
+| 6     | 15.47                         |
+| 7     | 15.51                         |
+| 8     | 15.49                         |
+| 9     | 15.55                         |
+| 10    | 15.52                         |
 
-- Stopwatch resolution: ±0.01 s → $$ \delta T_{\text{meas}} = 0.005 \, \text{s} $$
+Stopwatch resolution:
+
+$$
+\delta T_{\text{meas}} = \pm 0.005 \, \text{s}
+$$
+
+---
 
 ## Calculations
 
-### 1. Mean Time and Standard Deviation
+### 1. Mean and Standard Deviation
+
+Mean time for 10 oscillations:
 
 $$
-\overline{T_{10}} = \frac{1}{10} \sum T_{10i} = 24.809 \, \text{s}
+\overline{T_{10}} = \frac{1}{10} \sum T_{10i} = 15.511 \, \text{s}
+$$
+
+Period:
+
+$$
+T = \frac{\overline{T_{10}}}{10} = 1.5511 \, \text{s}
+$$
+
+Standard deviation:
+
+$$
+\sigma = \sqrt{ \frac{1}{n-1} \sum (T_{10i} - \overline{T_{10}})^2 } \approx 0.025 \, \text{s}
+$$
+
+Uncertainty in mean time:
+
+$$
+\delta T = \frac{\sigma}{\sqrt{n}} = \frac{0.025}{\sqrt{10}} \approx 0.0079 \, \text{s}
+$$
+
+### 2. Calculate $$ g $$
+
+Pendulum formula:
+
+$$
+T = 2\pi \sqrt{ \frac{L}{g} } \Rightarrow g = \frac{4\pi^2 L}{T^2}
+$$
+
+Substituting:
+
+$$
+g = \frac{4\pi^2 \cdot 0.600}{(1.5511)^2} \approx 9.84 \, \text{m/s}^2
+$$
+
+### 3. Uncertainty in $$ g $$
+
+Relative uncertainty:
+
+$$
+\left( \frac{\delta g}{g} \right)^2 = \left( \frac{\delta L}{L} \right)^2 + \left( 2 \frac{\delta T}{T} \right)^2
+$$
+
+Substituting:
+
+$$
+\frac{\delta L}{L} = \frac{0.001}{0.600} = 1.67 \times 10^{-3}
 $$
 
 $$
-T = \frac{\overline{T_{10}}}{10} = 2.4809 \, \text{s}
+\frac{\delta T}{T} = \frac{0.0079}{1.5511} \approx 5.09 \times 10^{-3}
 $$
 
 $$
-\sigma = \sqrt{\frac{1}{n-1} \sum (T_{10i} - \overline{T_{10}})^2} \approx 0.030 \, \text{s}
+\frac{\delta g}{g} = \sqrt{(1.67 \times 10^{-3})^2 + (2 \cdot 5.09 \times 10^{-3})^2} \approx 1.03 \times 10^{-2}
 $$
 
-$$
-\delta T = \frac{\sigma}{\sqrt{n}} = \frac{0.030}{\sqrt{10}} \approx 0.0095 \, \text{s}
-$$
-
-### 2. Calculation of \( g \)
-
-The period \( T \) of a simple pendulum is related to the acceleration due to gravity \( g \) by the formula:
+Absolute uncertainty:
 
 $$
-T = 2\pi \sqrt{\frac{L}{g}} \Rightarrow g = \frac{4\pi^2 L}{T^2}
+\delta g = g \cdot \frac{\delta g}{g} = 9.84 \cdot 1.03 \times 10^{-2} \approx 0.10 \, \text{m/s}^2
 $$
 
-Substituting the known values:
+---
+
+**Final result:**
 
 $$
-g = \frac{4\pi^2 \cdot 1.500}{(2.4809)^2} \approx 9.61 \, \text{m/s}^2
+{g = 9.84 \pm 0.10 \, \text{m/s}^2}
 $$
 
-### 3. Uncertainty in \( g \)
+---
 
-Using propagation of uncertainty:
-
-$$
-\left( \frac{\delta g}{g} \right)^2 = \left( \frac{\delta L}{L} \right)^2 + \left( 2\frac{\delta T}{T} \right)^2
-$$
-
-Where:
-
-$$
-\frac{\delta L}{L} = \frac{0.001}{1.500} = 6.67 \times 10^{-4}, \quad \frac{\delta T}{T} = \frac{0.0095}{2.4809} = 3.83 \times 10^{-3}
-$$
-
-Now calculating:
-
-$$
-\frac{\delta g}{g} = \sqrt{(6.67 \times 10^{-4})^2 + (2 \cdot 3.83 \times 10^{-3})^2} \approx 7.75 \times 10^{-3}
-$$
-
-Therefore:
-
-$$
-\delta g = 9.61 \cdot 7.75 \times 10^{-3} \approx 0.075 \, \text{m/s}^2
-$$
-
-Thus, the acceleration due to gravity is:
-
-$$
-\boxed{g = 9.61 \pm 0.08 \, \text{m/s}^2}
-$$
-
-##
-
-![alt text](image.png)
-
+![alt text](swinging_coin_pendulum.gif)
 
 ## Discussion
 
 ### Comparison with Standard Value
 
-- Standard value of \( g \) ≈ $$ 9.81 \, \text{m/s}^2 $$
-- Measured value: $$ 9.61 \pm 0.08 \, \text{m/s}^2 $$
-- Deviation: $$ \approx 0.20 \, \text{m/s}^2 $$, which is more than the uncertainty margin, suggesting possible systematic error
+- Standard value:
+
+  $$
+  g = 9.81 \, \text{m/s}^2
+  $$
+
+- Measured value:
+
+  $$
+  g = 9.84 \pm 0.10 \, \text{m/s}^2
+  $$
+
+✅ Well within uncertainty.
+
+---
 
 ### Sources of Uncertainty
 
-1. **Length Measurement**:
-   - Only one measurement was taken.
-   - The center of mass may not be well estimated for irregular weights.
+#### 1. Length Measurement
 
-2. **Timing Errors**:
-   - Human reaction time (~0.2 s) can bias stopwatch readings.
-   - Repeated measurements helped reduce random timing errors.
+- Only one measurement was taken.
+- The center of mass may not be precisely determined.
 
-3. **Small Angle Assumption**:
-   - Valid for \( \theta < 15^\circ \), assumed satisfied here.
-   - Larger angles would make \( T \) slightly longer.
+#### 2. Timing Errors
 
-4. **Air Resistance and Friction**:
-   - Dampen the motion slightly, elongating period.
-   - Negligible over 10 oscillations.
+- Human reaction time (~0.2 s) can bias stopwatch readings.
+- Averaging 10 repetitions of 10 oscillations helps reduce random errors.
 
-5. **Support Flexibility**:
-   - Any swinging or flexibility in the support point introduces error.
+#### 3. Small Angle Approximation
+
+# Small Angle Approximation
+
+- Valid for $\theta < 15^\circ$, which was satisfied.
+- Larger angles would increase the period $T$, slightly lowering $g$.
+
+
+#### 4. Air Resistance
+
+- Negligible due to small amplitude and short time scale.
+
+---
 
 ## Conclusion
 
-The experimental value of g  is reasonably close to the standard value, demonstrating the validity of using a simple pendulum for estimating gravitational acceleration. This experiment also highlights the importance of uncertainty analysis in experimental physics.
+The experiment yielded:
+
+$$
+g = 9.84 \pm 0.10 \, \text{m/s}^2
+$$
+
+This agrees well with the accepted value of $9.81 \, \text{m/s}^2$, demonstrating...
+the validity of the pendulum method and the importance of uncertainty analysis in physics experiments.
