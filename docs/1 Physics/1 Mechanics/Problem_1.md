@@ -131,13 +131,13 @@ The graph illustrates the relationship between the launch angle and the projecti
 ![alt text](image.png)
 
 **Blue Curve:**  
-$ v_0 $= 10  m/s  
+ v = 10  m/s  
 
 **Orange Curve:**  
-$ v_0 $= 20  m/s  
+ v = 20  m/s  
 
 **Green Curve:**  
-$ v_0 $ = 30 m/s  
+ v = 30 m/s  
 
 
 ### Observations:
