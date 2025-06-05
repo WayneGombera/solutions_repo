@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Estimating \(\pi\) with Monte Carlo Methods - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Estimating \\(\\pi\\) with Monte Carlo Methods";
         var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -84,8 +84,18 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Estimating \(\pi\) with Monte Carlo Methods</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#part-1-estimating-pi-using-a-circle">Part 1: Estimating \(\pi\) Using a Circle</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#explanation-of-monte-carlo-simulation-with-n-10000">Explanation of Monte Carlo Simulation with \(N = 10000\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#explanation-of-buffons-needle-simulation-with-n-10000">Explanation of Buffon’s Needle Simulation with \(N = 10000\)</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +173,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Estimating \(\pi\) with Monte Carlo Methods</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +181,36 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="estimating-pi-with-monte-carlo-methods">Estimating <span class="arithmatex">\(\pi\)</span> with Monte Carlo Methods</h1>
+<p>Monte Carlo simulations are a powerful class of computational techniques that use randomness to solve problems or estimate values. One of the most elegant applications is estimating the value of <span class="arithmatex">\(\pi\)</span> using geometric probability.</p>
+<p>This project connects probability, geometry, and numerical computation. It provides insight into convergence rates and computational efficiency, highlighting the versatility and simplicity of Monte Carlo methods.</p>
+<hr/>
+<h2 id="part-1-estimating-pi-using-a-circle">Part 1: Estimating <span class="arithmatex">\(\pi\)</span> Using a Circle</h2>
+<h3 id="1-theoretical-foundation">1. Theoretical Foundation</h3>
+<p>A unit circle (radius = 1) can be inscribed in a square with side length 2. The idea is to randomly generate points in the square and determine the fraction that fall inside the circle.</p>
+<ul>
+<li>Area of the circle: <span class="arithmatex">\(A_{\text{circle}} = \pi r^2 = \pi\)</span></li>
+<li>Area of the square: <span class="arithmatex">\(A_{\text{square}} = 4\)</span></li>
+</ul>
+<p>The probability that a randomly chosen point lies inside the circle is:</p>
+<div class="arithmatex">\[
+\frac{\text{Points inside circle}}{\text{Total points}} \approx \frac{\pi}{4} \Rightarrow \pi \approx 4 \times \frac{\text{Inside}}{\text{Total}}
+\]</div>
+<h3 id="explanation-of-monte-carlo-simulation-with-n-10000">Explanation of Monte Carlo Simulation with <span class="arithmatex">\(N = 10000\)</span></h3>
+<p>In this simulation, we randomly generated 10000 points uniformly distributed inside the square <span class="arithmatex">\([-1, 1] \times [-1, 1]\)</span>. Each point’s position was checked to see if it falls inside the unit circle defined by <span class="arithmatex">\(x^2 + y^2 \leq 1\)</span>.</p>
+<p>Because the area of the circle is <span class="arithmatex">\(\pi\)</span> (for radius 1) and the area of the square is 4, the ratio of points inside the circle to the total points approximates the ratio of their areas, i.e.,</p>
+<p>the fraction <span class="arithmatex">\(\frac{\text{Points inside circle}}{N}\)</span> is approximately equal to <span class="arithmatex">\(\frac{\pi}{4}\)</span>.</p>
+<p>Using this, the value of <span class="arithmatex">\(\pi\)</span> is estimated by</p>
+<p><span class="arithmatex">\(\pi \approx 4 \times \frac{\text{Points inside circle}}{N}\)</span>.</p>
+<p>With <span class="arithmatex">\(N=10000\)</span>, the estimate converges reasonably well to the true value of <span class="arithmatex">\(\pi\)</span>, though some random fluctuation remains due to sampling variability. Increasing <span class="arithmatex">\(N\)</span> would improve accuracy by reducing this variability.</p>
+<p><img alt="alt text" src="../circle_method.png"/></p>
+<h3 id="explanation-of-buffons-needle-simulation-with-n-10000">Explanation of Buffon’s Needle Simulation with <span class="arithmatex">\(N = 10000\)</span></h3>
+<p>In this simulation, we dropped <span class="arithmatex">\(N = 10000\)</span> virtual needles of length <span class="arithmatex">\(L = 1\)</span> onto a plane with parallel lines spaced a distance <span class="arithmatex">\(D = 2\)</span> apart. For each drop, we randomly selected the angle <span class="arithmatex">\(\theta\)</span> between the needle and the lines (from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(\frac{\pi}{2}\)</span>), and the distance from the needle’s center to the nearest line.</p>
+<p>A needle is considered to cross a line if the perpendicular distance from its center to the nearest line is less than or equal to <span class="arithmatex">\(\frac{L}{2} \sin(\theta)\)</span>. We count how many needles cross a line, denoted as <span class="arithmatex">\(n_{\text{crosses}}\)</span>.</p>
+<p>Using Buffon’s formula, the probability of a needle crossing a line is <span class="arithmatex">\(P = \frac{2L}{\pi D}\)</span>, which leads to the estimate:</p>
+<p><span class="arithmatex">\(\pi \approx \frac{2L \cdot N}{D \cdot n_{\text{crosses}}}\)</span>.</p>
+<p>With <span class="arithmatex">\(N = 10000\)</span> drops, this estimate of <span class="arithmatex">\(\pi\)</span> is based on the observed frequency of crossings. While it approximates <span class="arithmatex">\(\pi\)</span> reasonably well, this method generally converges more slowly than the circle-based method due to higher variability and sensitivity to angle distributions.</p>
+<p><img alt="alt text" src="../buffon_needle.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
