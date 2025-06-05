@@ -61,8 +61,17 @@ Where:
 
 ### 2.3 Simulation 
 
+## 1. Circular Motion
+A charged particle moves in a circle in the XY-plane due to a magnetic field in the Z-direction and no electric field.
+
 ![alt text](image-2.png)
 
+## 2. Spiral Motion in Z-direction
+The particle spirals upwards due to both magnetic and electric fields aligned along the Z-axis.
+
 ![alt text](image-3.png)
+
+## 3. E × B Drift Motion
+The particle drifts due to the cross-product of perpendicular electric and magnetic fields. A classic E × B drift.
 
 ![alt text](image-4.png)
