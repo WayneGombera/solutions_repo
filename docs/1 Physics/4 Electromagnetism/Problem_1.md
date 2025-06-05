@@ -59,6 +59,6 @@ Where:
 - \(q\) is the charge of the particle,
 - \(\Delta t\) is the time step.
 
-### **2.3 Simulation **
+### 2.3 Simulation 
 
 ![alt text](image-1.png)
